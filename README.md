@@ -2,7 +2,7 @@
 
 - Resetter only needs two files to be compatible with a distro, the first is a stock manifest file, the second is the stock userlist. ResetterHelper can be doesn't need to be installed and can be run on a new system to generate those files.
 - With the help of volunteers running this program on a stock debian based system and submitting their generated files, Resetter will be compatible with virtually any debian based os whether x86, amd64 or arm.
-- This is the app that will help resetter spread to other debian based distros.
+- This is the program that will help reseter spread to other debian based distros.
 
 # How to use
 
@@ -16,7 +16,9 @@ double click to run or run
 
 
 Because this program comes with all of its libraries, the size is around 44MB which is greater than the 10MB that github permits, therefore, I'm using mega for the hosting.
-This application doesn't need to run as root. It runs fine as the standard user. Start the applications, generate the needed files from your stock distro and submit them to me via email or a pull request stating the os name, architecture and
+This program doesn't need to run as root as it runs fine as the standard user.
+
+To help make your distro supported, start the program, generate the needed files from your **stock distro** and submit them to me via email or a pull request stating the os name, architecture and Desktop Environment.
 
 # Bug reports
 
