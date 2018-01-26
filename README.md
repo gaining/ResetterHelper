@@ -7,7 +7,14 @@
 # How to use
 
 - Download the program found [here](https://mega.nz/#!N5kgnTib!S0pGbLpkKK2jIw6bH-iwom9IXeO9mCj2rkI37VshSlU) then on the terminal, run the following commands:
-`chmod +x ResetterHelper`, double click to run or run `./ResetterHelper`
+
+`chmod +x ResetterHelper`,
+
+double click to run or run
+
+`./ResetterHelper`
+
+
 Because this program comes with all of its libraries, the size is around 44MB which is greater than the 10MB that github permits, therefore, I'm using mega for the hosting.
 This application doesn't need to run as root. It runs fine as the standard user. Start the applications, generate the needed files from your stock distro and submit them to me via email or a pull request stating the os name, architecture and
 
