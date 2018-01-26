@@ -1,8 +1,8 @@
 # Resetter Helper v1.0
-
 - Resetter only needs two files to be compatible with a distro, the first is a stock manifest file, the second is the stock userlist. ResetterHelper can be doesn't need to be installed and can be run on a new system to generate those files.
 - With the help of volunteers running this program on a stock debian based system and submitting their generated files, Resetter will be compatible with virtually any debian based os whether x86, amd64 or arm.
 - This is the program that will help reseter spread to other debian based distros.
+- Written in python 3.5 and PyQt5
 
 # How to use
 
