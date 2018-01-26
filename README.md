@@ -6,8 +6,8 @@
 
 # How to use
 
-Download the deb files found [here](https://github.com/gaining/ResetteHelper/releases/latest) then on the terminal, run the following commands:
-1. `chmod +x ResetterHelper`
+- Download the deb files found [here](https://mega.nz/#!N5kgnTib!S0pGbLpkKK2jIw6bH-iwom9IXeO9mCj2rkI37VshSlU) then on the terminal, run the following commands:
+Because this program comes with all of its libraries, the size is around 44MB which is greater than the 10MB that github permits, therefore, I'm using mega for the hosting.
 This application doesn't need to run as root. It runs fine as the standard user. Start the applications, generate the needed files from your stock distro and submit them to me via email or a pull request stating the os name, architecture and
 
 # Bug reports
@@ -20,7 +20,7 @@ This application doesn't need to run as root. It runs fine as the standard user.
 - Generate the manifest of a distro
 - Generate the entire userlist of a distro
 
-# Officially supported distros [32-bit, 64-bit, arm]
+# Officially supported distro architectures [32-bit, 64-bit, arm]
 
 This app should run on any linux distros as far as I know, however, it will tell you whether your distro can be supported or not.
 
