@@ -1,24 +1,33 @@
 # Resetter Helper v1.0
-- Resetter only needs two files to be compatible with a distro, the first is a stock manifest file, the second is the stock userlist. ResetterHelper can be doesn't need to be installed and can be run on a new system to generate those files.
+- Resetter only needs two files to be compatible with a distro, the first is a stock manifest file, the second is the stock userlist. ResetterHelper doesn't need to be installed and can be run on a new system to generate those files.
 - With the help of volunteers running this program on a stock debian based system and submitting their generated files, Resetter will be compatible with virtually any debian based os whether x86, amd64 or arm.
 - This is the program that will help reseter spread to other debian based distros.
 - Written in python 3.5 and PyQt5
 
 # How to use
+(Using GUI)
 
-- Download the program found [here](https://mega.nz/#!N5kgnTib!S0pGbLpkKK2jIw6bH-iwom9IXeO9mCj2rkI37VshSlU) then on the terminal, run the following commands:
+- Download the program found [here](https://github.com/gaining/ResetterHelper/releases/latest) then on the terminal, run the following commands:
+- Extract the tar.gz file, by right clicking, then select "*extract files*"
+- Double click on *ResetterHelper* Binary to run it
+- Press generate
+- send me the generated files by email or create a pull request which adds these files to the data folder which contains the manifest (I'll write a separate instruction for this)
+- Make sure to only run this program on a **stock distro with no added packages other than the preinstalled ones**
 
-`chmod +x ResetterHelper`,
+(Using CLI)
 
-double click to run or run
+- If you decide to use the CLI way, I'll assume your know your way around the terminal. Run the following commands:
+- 1. `tar xvzf ResetterHelper.tar.gz`
+- 2. `cd ResetterHelper`
+- 3. `chmod +x ResetterHelper`
+- 4. `./ResetterHelper`
 
-`./ResetterHelper`
+
+# Notes
+- A completely cli version of this small program will be released once I find enough time to make it.
+- The goal of this program is to help make *Resetter* self sustainable for a bit without me having to updated it all the time.
 
 
-Because this program comes with all of its libraries, the size is around 44MB which is greater than the 10MB that github permits, therefore, I'm using mega for the hosting.
-This program doesn't need to run as root as it runs fine as the standard user.
-
-To help make your distro supported, start the program, generate the needed files from your **stock distro** and submit them to me via email or a pull request stating the os name, architecture and Desktop Environment.
 
 # Bug reports
 
