@@ -24,7 +24,7 @@
 
 
 # Notes
-- A completely cli version of this small program will be released once I find enough time to make it.
+- A complete cli version of this small program will be released once I find enough time to make it.
 - The goal of this program is to help make *Resetter* self sustainable for a bit without me having to updated it all the time.
 
 

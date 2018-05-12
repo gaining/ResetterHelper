@@ -10,13 +10,14 @@ import sys
 import os
 import lsb_release
 import pwd
+import platform
 
 
 class ResetterHelper(QWidget):
 
     def __init__(self, parent=None):
         super(ResetterHelper, self).__init__(parent)
-        self.setWindowTitle("Resetter Helper v1.0")
+        self.setWindowTitle("Resetter Helper v1.1")
         self.os_info = lsb_release.get_distro_information()
         os_information = '{} {}'.format(self.os_info['ID'], self.os_info['RELEASE'])
         os_info_label = QLabel(os_information)
@@ -78,11 +79,13 @@ class ResetterHelper(QWidget):
         try:
             QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             p1 = subprocess.check_output(['dpkg', '--get-selections'])
-            manifest = self.os_info['ID'] + self.os_info['RELEASE'] + '.manifest'
+            manifest = '_'.join((self.os_info['ID'], self.os_info['RELEASE'], \
+                                 os.environ.get('DESKTOP_SESSION'), platform.architecture()[0], ".manifest"))
             with open(manifest, 'w') as output:
                 for line in p1.splitlines():
                     output.write(line.decode().split('\t', 1)[0] + '\n')
-        except subprocess.CalledProcessError as e:
+        except subprocess.CalledProcessError:
+            QApplication.restoreOverrideCursor()
             self.showMessage("Error",
                              "an error has occured while generating manifest",
                              QMessageBox.Critical)
@@ -92,19 +95,28 @@ class ResetterHelper(QWidget):
                              "Your generated manifest can be found at {}".format(os.path.abspath(output.name)),
                              QMessageBox.Information)
 
+    def dependencyInjector(self, man_list):
+        resetterdeps = ['pyqt4-dev-tools',
+                        'python-apt', 'python-aptdaemon', 'python-qt4', 'python-qt4-doc', 'libqt',
+                        'pyqt4-dev-tools', 'python-sip', 'python-mechanize', 'python-bs4', 'add-apt-key']
+
     def generateUserlist(self):
         try:
             QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             cmd = subprocess.check_output(['bash', '-c', 'compgen -u'])
-            userlist = self.os_info['ID'] + self.os_info['RELEASE'] + '-default-userlist'
+            userlist = '_'.join((self.os_info['ID'], self.os_info['RELEASE'], 'default-userlist',\
+            os.environ.get('DESKTOP_SESSION'), platform.architecture()[0]))
+
             with open(userlist, 'w') as output:
                 for line in cmd.splitlines():
-                    if line.decode() != self.user:
-                        output.writelines(line.decode() + '\n')
-        except (subprocess.CalledProcessError, Exception) as e:
+                    line = line.decode()
+                    if not self.user in line:
+                        output.writelines(line + '\n')
+        except subprocess.CalledProcessError as e:
+            QApplication.restoreOverrideCursor()
             self.showMessage("Error",
                              "an error has occured while getting users",
-                             QMessageBox.Critical)
+                             QMessageBox.Critical, str(e))
         else:
             QApplication.restoreOverrideCursor()
             self.showMessage("Success",
@@ -134,8 +146,6 @@ class ResetterHelper(QWidget):
                 for line in diff:
                     output.writelines(line)
                     item = QtGui.QStandardItem(line.strip())
-                    #item.setCheckable(True)
-                    #item.setCheckState(QtCore.Qt.Unchecked)
                     self.model.appendRow(item)
                 self.listView.setModel(self.model)
 
@@ -150,6 +160,7 @@ class ResetterHelper(QWidget):
         if detail is not None:
             self.msg.setDetailedText(detail)
         self.msg.exec_()
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
