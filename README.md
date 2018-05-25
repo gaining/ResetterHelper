@@ -11,7 +11,7 @@
 - Extract the tar.gz file, by right clicking, then select "*extract files*"
 - Double click on *ResetterHelper* Binary to run it
 - Press generate
-- send me the generated files by email or create a pull request which adds these files to the data folder which contains the manifest (I'll write a separate instruction for this)
+- send me the generated files by email if you do not have a github account or create a pull request which adds these files to the data folder which contains the manifest
 - Make sure to only run this program on a **stock distro with no added packages other than the preinstalled ones**
 
 (Using CLI)
