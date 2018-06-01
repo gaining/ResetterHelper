@@ -16,7 +16,7 @@ class ResetterHelper(QtWidgets.QWidget):
 
     def __init__(self, parent=None):
         super(ResetterHelper, self).__init__(parent)
-        self.setWindowTitle("Resetter Helper v1.1")
+        self.setWindowTitle("Resetter Helper v1.2")
         self.os_info = lsb_release.get_distro_information()
         os_information = '{} {}'.format(self.os_info['ID'], self.os_info['RELEASE'])
         os_info_label = QtWidgets.QLabel(os_information)
@@ -64,7 +64,7 @@ class ResetterHelper(QtWidgets.QWidget):
         elif self.euid == 0 and 'PKEXEC_UID' not in os.environ:
             self.user = os.environ['SUDO_USER']
         else:
-            self.user = os.environ.get('USERNAME')
+            self.user = os.environ.get('USER')
 
 
     def checkForApt(self):
